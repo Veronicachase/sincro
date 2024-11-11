@@ -32,8 +32,8 @@ este proyecto se encuentra en proceso de cambios y pruebas, entre ellos migraci√
 1. Clona el repositorio:
 
    ```bash
-   git clone <https://github.com/Veronicachase/Sincropfbackup.git>
-   cd <Sincropfbackup/Backend>
+   git clone <https://github.com/Veronicachase/sincro.git>
+   cd <sincro/Backend>
    ```
 
 2. Instala las dependencias:
@@ -46,7 +46,7 @@ este proyecto se encuentra en proceso de cambios y pruebas, entre ellos migraci√
 1. Navega al directorio del frontend:
 
    ```bash
-   cd <Sincropfbackup/Frontend>
+   cd <sincro/Frontend>
    ```
 
 2. Instala las dependencias:
@@ -113,7 +113,7 @@ tu base de datos debe contener lo siguientes campos: copia este script O EDITOR 
 DROP TABLE IF EXISTS `contacts`;
 
 CREATE TABLE `contacts` (
-`contactName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+`contactName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4*0900_ai_ci DEFAULT NULL,
 `contactId` int NOT NULL AUTO_INCREMENT,
 `category` enum('client','company','vendor','contractor','employee','other') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
 `company` varchar(100) DEFAULT NULL,
@@ -127,7 +127,7 @@ PRIMARY KEY (`contactId`),
 KEY `contacts_users_FK` (`userId`),
 CONSTRAINT `contacts_users_FK` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/_!40101 SET character_set_client = @saved_cs_client _/;
+/*!40101 SET character*set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `employees`
@@ -137,7 +137,7 @@ DROP TABLE IF EXISTS `employees`;
 /_!40101 SET @saved_cs_client = @@character_set_client _/;
 /_!50503 SET character_set_client = utf8mb4 _/;
 CREATE TABLE `employees` (
-`employeeId` int NOT NULL AUTO_INCREMENT,
+`employeeId` int NOT NULL AUTO*INCREMENT,
 `date` date DEFAULT NULL,
 `name` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
 `position` enum('Encargado','Ayudante','Principal','Becario','Otro') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
@@ -155,7 +155,7 @@ KEY `employees_users_FK` (`userId`),
 CONSTRAINT `employee_projects_FK` FOREIGN KEY (`projectId`) REFERENCES `projects` (`projectId`) ON DELETE CASCADE ON UPDATE RESTRICT,
 CONSTRAINT `employees_users_FK` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf16le;
-/_!40101 SET character_set_client = @saved_cs_client _/;
+/*!40101 SET character*set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `hours`
@@ -165,7 +165,7 @@ DROP TABLE IF EXISTS `hours`;
 /_!40101 SET @saved_cs_client = @@character_set_client _/;
 /_!50503 SET character_set_client = utf8mb4 _/;
 CREATE TABLE `hours` (
-`hoursId` int NOT NULL AUTO_INCREMENT,
+`hoursId` int NOT NULL AUTO*INCREMENT,
 `projectId` int DEFAULT NULL,
 `employeeId` int DEFAULT NULL,
 `extraHours` int DEFAULT NULL,
@@ -182,7 +182,7 @@ CONSTRAINT `hours_employees_FK` FOREIGN KEY (`employeeId`) REFERENCES `employees
 CONSTRAINT `hours_projects_FK` FOREIGN KEY (`projectId`) REFERENCES `projects` (`projectId`) ON DELETE CASCADE ON UPDATE RESTRICT,
 CONSTRAINT `hours_users_FK` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/_!40101 SET character_set_client = @saved_cs_client _/;
+/*!40101 SET character*set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `orders`
@@ -192,7 +192,7 @@ DROP TABLE IF EXISTS `orders`;
 /_!40101 SET @saved_cs_client = @@character_set_client _/;
 /_!50503 SET character_set_client = utf8mb4 _/;
 CREATE TABLE `orders` (
-`orderId` int NOT NULL AUTO_INCREMENT,
+`orderId` int NOT NULL AUTO*INCREMENT,
 `projectId` int DEFAULT NULL,
 `productName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
 `provider` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
@@ -210,7 +210,7 @@ KEY `orders_users_FK` (`userId`),
 CONSTRAINT `orders_projects_FK` FOREIGN KEY (`projectId`) REFERENCES `projects` (`projectId`) ON DELETE CASCADE ON UPDATE RESTRICT,
 CONSTRAINT `orders_users_FK` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/_!40101 SET character_set_client = @saved_cs_client _/;
+/*!40101 SET character*set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `pendings`
@@ -220,7 +220,7 @@ DROP TABLE IF EXISTS `pendings`;
 /_!40101 SET @saved_cs_client = @@character_set_client _/;
 /_!50503 SET character_set_client = utf8mb4 _/;
 CREATE TABLE `pendings` (
-`pendingId` int NOT NULL AUTO_INCREMENT,
+`pendingId` int NOT NULL AUTO*INCREMENT,
 `details` varchar(200) DEFAULT NULL,
 `date` date DEFAULT NULL,
 `status` enum('pendiente','terminado') DEFAULT NULL,
@@ -229,7 +229,7 @@ PRIMARY KEY (`pendingId`),
 KEY `pendings_users_FK` (`userId`),
 CONSTRAINT `pendings_users_FK` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/_!40101 SET character_set_client = @saved_cs_client _/;
+/*!40101 SET character*set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `projects`
@@ -239,7 +239,7 @@ DROP TABLE IF EXISTS `projects`;
 /_!40101 SET @saved_cs_client = @@character_set_client _/;
 /_!50503 SET character_set_client = utf8mb4 _/;
 CREATE TABLE `projects` (
-`hiringCompany` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+`hiringCompany` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4*0900_ai_ci DEFAULT NULL,
 `sections` json DEFAULT NULL,
 `projectName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
 `userId` int DEFAULT NULL,
@@ -264,7 +264,7 @@ KEY `projects_users_FK` (`userId`),
 CONSTRAINT `projects_employee_FK` FOREIGN KEY (`employeeId`) REFERENCES `employees` (`employeeId`) ON DELETE CASCADE ON UPDATE RESTRICT,
 CONSTRAINT `projects_users_FK` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/_!40101 SET character_set_client = @saved_cs_client _/;
+/*!40101 SET character*set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `reports`
@@ -274,7 +274,7 @@ DROP TABLE IF EXISTS `reports`;
 /_!40101 SET @saved_cs_client = @@character_set_client _/;
 /_!50503 SET character_set_client = utf8mb4 _/;
 CREATE TABLE `reports` (
-`reportId` int NOT NULL AUTO_INCREMENT,
+`reportId` int NOT NULL AUTO*INCREMENT,
 `reportName` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
 `projectId` int DEFAULT NULL,
 `employeeId` int DEFAULT NULL,
@@ -297,7 +297,7 @@ CONSTRAINT `reports_projects_FK` FOREIGN KEY (`projectId`) REFERENCES `projects`
 CONSTRAINT `reports_tasks_FK` FOREIGN KEY (`taskId`) REFERENCES `tasks` (`taskId`) ON DELETE CASCADE ON UPDATE RESTRICT,
 CONSTRAINT `reports_users_FK` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/_!40101 SET character_set_client = @saved_cs_client _/;
+/*!40101 SET character*set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `tasks`
@@ -307,7 +307,7 @@ DROP TABLE IF EXISTS `tasks`;
 /_!40101 SET @saved_cs_client = @@character_set_client _/;
 /_!50503 SET character_set_client = utf8mb4 _/;
 CREATE TABLE `tasks` (
-`taskId` int NOT NULL AUTO_INCREMENT,
+`taskId` int NOT NULL AUTO*INCREMENT,
 `taskName` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
 `employeeName` varchar(100) DEFAULT NULL,
 `employeeId` int DEFAULT NULL,
@@ -328,7 +328,7 @@ CONSTRAINT `task_employee_FK` FOREIGN KEY (`employeeId`) REFERENCES `employees` 
 CONSTRAINT `task_projects_FK` FOREIGN KEY (`projectId`) REFERENCES `projects` (`projectId`) ON DELETE CASCADE ON UPDATE RESTRICT,
 CONSTRAINT `tasks_users_FK` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE=InnoDB AUTO_INCREMENT=136 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/_!40101 SET character_set_client = @saved_cs_client _/;
+/*!40101 SET character*set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `users`
