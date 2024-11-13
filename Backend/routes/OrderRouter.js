@@ -1,5 +1,5 @@
 const express = require("express");
-const { addOrder,getOrder,getAllOrders, deleteOrder, updateOrder  } = require("../controllers/orderController");
+const { addOrder,getOrder,getAllOrders, deleteOrder, updateOrder  } = require("../controllers/OrderController");
 const orderRouter = express.Router();
 const authenticateToken = require("../middleWares/authenticateToken");
 const upload = require("../public/cloudinary/uploadMiddleware");
