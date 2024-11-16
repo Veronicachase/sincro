@@ -14,7 +14,7 @@
 /.vite-plugin-react/
 
 # Directorios de salida
-/dist/
+#/dist/
 /build/
 /public/build/
 /out/
