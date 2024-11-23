@@ -1,4 +1,5 @@
 const mysql = require("mysql2/promise");
+require("dotenv").config();
 let db = {};
 
 db.createConnection = async () => {
@@ -19,7 +20,6 @@ db.createConnection = async () => {
     throw new Error(error.message);
   }
 };
-
 
 db.query = async (sqlQuery, params, type, conn) => {
   try {
