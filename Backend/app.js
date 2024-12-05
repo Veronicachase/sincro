@@ -16,7 +16,8 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 const corsOptions = {
-  origin: "https://sincro.pro",
+  origin: "https://sincro.pro", "http://localhost:3000"
+  methods: ["GET", "POST", "PUT", "DELETE"]
   credentials: true,
 };
 // Middlewares de express
