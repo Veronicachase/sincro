@@ -39,15 +39,14 @@ userDao.addUser = async (userData) => {
       updateDate: moment().format("YYYY-MM-DD"),
     };
 
-    const userId  = await db.query(
+    const userId = await db.query(
       "INSERT INTO users SET ?",
       userObj,
       "insert",
       conn
     );
 
-   
-    console.log("UserId del usuario recien registrado",userId)
+    console.log("UserId del usuario recien registrado", userId);
 
     const defaultProject = {
       projectName: "Default Project",
@@ -71,7 +70,7 @@ userDao.addUser = async (userData) => {
         "hall",
         "livingRoom",
       ]),
-      hiringCompany:"",
+      hiringCompany: "",
       image: "",
       status: "noIniciado",
       reports: JSON.stringify([]),
@@ -84,7 +83,7 @@ userDao.addUser = async (userData) => {
       "insert",
       conn
     );
-    console.log(projectResult);
+    //console.log(projectResult);
 
     const projectId = projectResult.insertId;
     console.log(projectId);
@@ -96,8 +95,6 @@ userDao.addUser = async (userData) => {
     conn && (await conn.end());
   }
 };
-
-
 
 userDao.getUserbyId = async (id) => {
   let conn = null;

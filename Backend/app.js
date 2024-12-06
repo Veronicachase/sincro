@@ -16,11 +16,14 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 const corsOptions = {
-  origin: ["https://sincro.pro", "http://localhost:3000"],
+  origin: [
+    "https://sincro.pro",
+    "http://localhost:3001",
+    "http://localhost:5173",
+  ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 };
-
 
 // Middlewares de express
 app.use(cors(corsOptions));
@@ -38,9 +41,8 @@ app.use("/orders", authenticateToken, orderRouter);
 app.use("/hours", authenticateToken, hoursRouter);
 app.use("/pendings", authenticateToken, pendingRouter);
 
-// Rutas públicas
 app.use("/users", userRouter);
-// Redirigir a la ruta de inicio de sesión
+
 app.get("/", (req, res) => {
   res.redirect("/users/login");
 });

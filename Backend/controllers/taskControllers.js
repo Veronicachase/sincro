@@ -82,10 +82,9 @@ const getAllTasks = async (req, res) => {
 const getTasksBySection = async (req, res) => {
   const userId = req.user.userId;
   const { projectId, sectionKey } = req.params;
-  console.log("Project ID:", projectId);
-  console.log("Section Key:", sectionKey);
-  console.log("User ID:", userId);  
-
+  // console.log("Project ID:", projectId);
+  // console.log("Section Key:", sectionKey);
+  // console.log("User ID:", userId);
 
   try {
     let tasks = await taskDao.getTasksBySection(projectId, sectionKey, userId);

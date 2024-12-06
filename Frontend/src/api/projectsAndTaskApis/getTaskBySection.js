@@ -1,13 +1,10 @@
 const apiUrl = import.meta.env.VITE_API_URL;
 
-
-
 export const getTaskBySection = async (projectId, sectionKey) => {
   try {
     const token = localStorage.getItem("token");
     const url = `${apiUrl}/tasks/${projectId}/${sectionKey}`;
     console.log("Requesting URL:", url);
-    console.log("Token:", token);
 
     const response = await fetch(url, {
       method: "GET",

@@ -1,6 +1,7 @@
 const userDao = require("../services/DAO/userDao");
 const { SignJWT, jwtVerify } = require("jose");
 const md5 = require("md5");
+const { token } = require("morgan");
 
 const addUser = async (req, res) => {
   const { name, surname, company, email, password } = req.body;
@@ -47,8 +48,8 @@ const loginUser = async (req, res) => {
       .setIssuedAt()
       .setExpirationTime("24h")
       .sign(encoder.encode(process.env.JWT_SECRET));
-
-    return res.send({ token: jwt, user });
+    console.log(jwt);
+    return res.json({ token: jwt, user });
   } catch (e) {
     res.status(500).send("Error al iniciar sesión");
   }

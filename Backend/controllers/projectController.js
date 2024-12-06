@@ -5,18 +5,16 @@ const cloudinary = require("cloudinary").v2;
 
 const addProject = async (req, res) => {
   const userId = req.user.userId;
-  
 
   try {
     const { body, file } = req;
 
     let imageUrl = "";
     if (file) {
-
       imageUrl = file.path;
     }
 
-    let sections ;
+    let sections;
 
     console.log("Archivo recibido por multer controller:", file);
 
@@ -74,12 +72,12 @@ const getProject = async (req, res) => {
 const getAllProjects = async (req, res) => {
   try {
     const userId = req.user.userId;
-    console.log("userId en el controlador:", userId);
+    //console.log("userId en el controlador:", userId);
     const projects = await projectDao.getAllProjects(userId);
     if (projects && projects.length > 0) {
       res.status(200).json(projects);
     } else {
-      res.status(204).send(); 
+      res.status(204).send();
     }
   } catch (error) {
     console.error("Error al obtener tus proyectos:", error.message);

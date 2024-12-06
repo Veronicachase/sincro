@@ -8,18 +8,18 @@ contactDao.addContact = async (contactData) => {
   try {
     conn = await db.createConnection();
     let contactObj = {
-      contactName:contactData.contactName,
+      contactName: contactData.contactName,
       category: contactData.category,
       company: contactData.company,
       address: contactData.address,
       email: contactData.email,
       phone: contactData.phone,
-      mobile:contactData.mobile,
+      mobile: contactData.mobile,
       comments: contactData.comments,
       userId: contactData.userId,
     };
     contactObj = await removeUndefinedKeys(contactObj);
-    console.log(contactObj)
+    //console.log(contactObj)
     await db.query("INSERT INTO contacts SET ?", contactObj, "insert", conn);
     return contactObj.contactId;
   } catch (e) {
@@ -56,9 +56,14 @@ contactDao.getAllContacts = async (userId) => {
   let conn = null;
   try {
     conn = await db.createConnection();
-    const results = await db.query("SELECT * FROM contacts WHERE userId = ?", [userId], "select", conn);
+    const results = await db.query(
+      "SELECT * FROM contacts WHERE userId = ?",
+      [userId],
+      "select",
+      conn
+    );
     if (results.length) {
-      return results ;
+      return results;
     }
     return null;
   } catch (e) {
