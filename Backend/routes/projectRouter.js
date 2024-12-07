@@ -33,7 +33,11 @@ projectRouter.delete("/:projectId/sections/:sectionKey", deleteSection);
 projectRouter.get("/:projectId", getSections);
 
 // rutas para Reports
-projectRouter.post("/:projectId/upload-report",upload.single("file"),uploadPDFReport);
+projectRouter.post(
+  "/:projectId/upload-report",
+  upload.single("file"),
+  uploadPDFReport
+);
 projectRouter.delete("/:projectId/reports/:reportId", deleteReport);
 projectRouter.get("/reports/all", getAllReports);
 
