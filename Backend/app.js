@@ -29,14 +29,13 @@ app.use(express.text());
 app.use(express.urlencoded({ extended: true }));
 
 // Aplicar el middleware de autenticación a las rutas que requieran autenticación
-app.use("/api/users", userRouter);
-app.use("/api/projects", authenticateToken, projectRouter);
-app.use("/api/employees", authenticateToken, employeeRouter);
-app.use("/api/tasks", authenticateToken, taskRouter);
-app.use("/api/contacts", authenticateToken, contactRouter);
-app.use("/api/orders", authenticateToken, orderRouter);
-app.use("/api/hours", authenticateToken, hoursRouter);
-app.use("/api/pendings", authenticateToken, pendingRouter);
+app.use("/projects", authenticateToken, projectRouter);
+app.use("/employees", authenticateToken, employeeRouter);
+app.use("/tasks", authenticateToken, taskRouter);
+app.use("/contacts", authenticateToken, contactRouter);
+app.use("/orders", authenticateToken, orderRouter);
+app.use("/hours", authenticateToken, hoursRouter);
+app.use("/pendings", authenticateToken, pendingRouter);
 
 app.use("/users", userRouter);
 
